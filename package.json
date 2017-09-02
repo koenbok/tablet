@@ -1,0 +1,46 @@
+{
+  "name": "tabletjs",
+  "version": "1.0.0",
+  "author": "Koen Bok",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "@types/commander": "^2.9.1",
+    "@types/jest": "^20.0.6",
+    "@types/lodash": "^4.14.71",
+    "@types/papaparse": "^4.1.30",
+    "@types/request": "^2.0.0",
+    "@types/sequelize": "^4.0.67",
+    "@types/temp": "^0.8.29",
+    "commander": "^2.11.0",
+    "csv": "^1.1.1",
+    "jest": "^20.0.4",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "moment-parseformat": "^2.2.1",
+    "papaparse": "^4.3.5",
+    "request": "^2.81.0",
+    "sequelize": "^4.4.2",
+    "sqlite3": "^3.1.9",
+    "temp": "^0.8.3",
+    "ts-jest": "^20.0.8",
+    "ts-node": "^3.3.0",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.4.2"
+  },
+  "optionalDependencies": {
+    "pg": "^7.1.2",
+    "pg-native": "^2.0.1"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}

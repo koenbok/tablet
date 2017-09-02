@@ -1,0 +1,11 @@
+import * as types from "./types";
+export declare const getDataHeaders: (rows: types.DataRowType[]) => string[];
+export declare const getRowHeaders: (rows: any[][]) => string[];
+export declare const getRowTypes: (rows: any[][]) => types.ValueType[];
+export declare const getDataRows: (rows: types.DataRowType[]) => any[][];
+export declare const getValueConverter: (type: types.ValueType) => ((value: string) => string) | ((value: string) => number | "*** invalid ***") | ((value: string) => boolean | "*** invalid ***") | ((value: any) => Date | "*** invalid ***") | ((value: any) => any);
+export declare const getConvertedValue: (type: types.ValueType, value: any) => any;
+export declare const getConvertedValues: (types: types.ValueType[], values: any[]) => any[];
+export declare const getColumnCount: (rows: string[][]) => number;
+export declare const getColumn: (rows: string[][], index: number) => string[];
+export declare const findRow: (rows: types.DataRowType[], key: string, value: any) => types.DataRowType;
