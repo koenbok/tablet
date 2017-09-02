@@ -1,18 +1,22 @@
-### Tablet
+## Tablet
 
-Tablet is a data analysis toolkit that loads, transforms and writes data to different formats. 
+> Tablet is a data analysis toolkit that loads, transforms and writes data to different formats. 
 
 #### Usage
 
 A typical example is loading an arbitrary csv file, converting it to sqlite, running a query and storing the result in another sqlite database.
 
-```
-import { Table } from "tablet"
+```typescript
+import { Table } from "tabletjs"
 
-const tableA = await Table.import.csv("data.csv")
-const tableB = await tableA.query("SELECT name, age, city FROM data")
+const main = async () => {    
+    const tableA = await Table.import.csv("data.csv")
+    const tableB = await tableA.query("SELECT name, age, city FROM data")
 
-tableB.export.sqlite("db.sqlite3")
+    tableB.export.sqlite("db.sqlite3")
+}
+
+main()
 ```
 
 Tablet tries to accurately guess your data structure like dates, numbers, booleans and strings so you can query them directly. It is pretty good at guessing formats through sampling, including currency formats and odd date formats.
@@ -23,7 +27,7 @@ Tablet tries to accurately guess your data structure like dates, numbers, boolea
 
 #### Documentations
 
-For complete docs, see the generated documentation in docs.
+For complete docs, see the [generated documentation](https://rawgit.com/koenbok/tablet/master/dist/docs/index.html) in dist/docs.
 
 - `Tablet.import.csv(path: string)` load a csv file and guess the structure.
 - `tablet.export.csv(path: string)` write the data to a csv file (including headers).

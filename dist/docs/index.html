@@ -64,23 +64,30 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h3 id="tablet">Tablet</h3>
-				<p>Tablet is a data analysis toolkit that loads, transforms and writes data to different formats. </p>
+				<h2 id="tablet">Tablet</h2>
+				<blockquote>
+					<p>Tablet is a data analysis toolkit that loads, transforms and writes data to different formats. </p>
+				</blockquote>
 				<h4 id="usage">Usage</h4>
 				<p>A typical example is loading an arbitrary csv file, converting it to sqlite, running a query and storing the result in another sqlite database.</p>
-				<pre><code><span class="hljs-keyword">import</span> { Table } from <span class="hljs-string">"tablet"</span>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> { Table } <span class="hljs-keyword">from</span> <span class="hljs-string">"tabletjs"</span>
 
-<span class="hljs-keyword">const</span> tableA = <span class="hljs-keyword">await</span> Table.<span class="hljs-keyword">import</span>.csv(<span class="hljs-string">"data.csv"</span>)
-<span class="hljs-keyword">const</span> tableB = <span class="hljs-keyword">await</span> tableA.query(<span class="hljs-string">"SELECT name, age, city FROM data"</span>)
+<span class="hljs-keyword">const</span> main = <span class="hljs-keyword">async</span> () =&gt; {    
+    <span class="hljs-keyword">const</span> tableA = <span class="hljs-keyword">await</span> Table.import.csv(<span class="hljs-string">"data.csv"</span>)
+    <span class="hljs-keyword">const</span> tableB = <span class="hljs-keyword">await</span> tableA.query(<span class="hljs-string">"SELECT name, age, city FROM data"</span>)
 
-tableB.<span class="hljs-keyword">export</span>.sqlite(<span class="hljs-string">"db.sqlite3"</span>)
-</code></pre><p>Tablet tries to accurately guess your data structure like dates, numbers, booleans and strings so you can query them directly. It is pretty good at guessing formats through sampling, including currency formats and odd date formats.</p>
+    tableB.export.sqlite(<span class="hljs-string">"db.sqlite3"</span>)
+}
+
+main()
+</code></pre>
+				<p>Tablet tries to accurately guess your data structure like dates, numbers, booleans and strings so you can query them directly. It is pretty good at guessing formats through sampling, including currency formats and odd date formats.</p>
 				<h4 id="getting-started">Getting Started</h4>
 				<ul>
 					<li><code>npm install --save-dev tabletjs</code></li>
 				</ul>
 				<h4 id="documentations">Documentations</h4>
-				<p>For complete docs, see the generated documentation in docs.</p>
+				<p>For complete docs, see the <a href="https://rawgit.com/koenbok/tablet/master/dist/docs/index.html">generated documentation</a> in dist/docs.</p>
 				<ul>
 					<li><code>Tablet.import.csv(path: string)</code> load a csv file and guess the structure.</li>
 					<li><code>tablet.export.csv(path: string)</code> write the data to a csv file (including headers).</li>
