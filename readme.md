@@ -25,7 +25,7 @@ Tablet tries to accurately guess your data structure like dates, numbers, boolea
 
 - `npm install --save-dev tabletjs`
 
-#### Documentations
+#### Documentation
 
 For complete docs, see the [generated documentation](https://rawgit.com/koenbok/tablet/master/dist/docs/index.html) in dist/docs.
 
