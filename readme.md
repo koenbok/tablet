@@ -2,14 +2,15 @@
 
 > Tablet is a data analysis toolkit that loads, transforms and writes data to different formats. 
 
-#### Usage
+A typical example is loading an arbitrary csv file, converting it to sqlite, running a query and storing the result in another sqlite database. It is perfect for turning any messy csv data file into a structured sqlite database that you can work with.
 
-A typical example is loading an arbitrary csv file, converting it to sqlite, running a query and storing the result in another sqlite database.
+#### Usage
 
 ```typescript
 import { Table } from "tabletjs"
 
-const main = async () => {    
+const main = async () => {
+
     const tableA = await Table.import.csv("data.csv")
     const tableB = await tableA.query("SELECT name, age, city FROM data")
 
