@@ -6,7 +6,8 @@ test("sql", async () => {
   const model = (await sql.createTable(
     "sqlite://:memory:",
     { name: "string", total: "number" },
-    [["Koen", "100"], ["Jorn", "200"]]
+    [["Koen", "100"], ["Jorn", "200"]],
+    [{ unique: false, fields: ["name"] }]
   )).model;
 
   const rows = (await model.findAll()).map((row: any) => row.dataValues);
