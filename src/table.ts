@@ -49,11 +49,12 @@ export class Table {
     return this._rows.map(row => row[this.columnIndex(column)]);
   }
 
-  private async _sql(url: string, tableName: string) {
+  private async _sql(url: string, tableName: string, indexes = []) {
     return sql.createTable(
       url,
       _.zipObject(this.headers, this.types),
       this.rows(),
+      indexes,
       true,
       tableName
     );

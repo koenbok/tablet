@@ -17,6 +17,7 @@ export const createTable = async (
   url: string,
   structure: any,
   data: any[][],
+  indexes = [],
   clear = true,
   name = "data"
 ) => {
@@ -43,7 +44,8 @@ export const createTable = async (
   const sequelizeOptions = {
     timestamps: false,
     tableName: name,
-    version: false
+    version: false,
+    indexes: indexes
   };
 
   const Model = sequelize.define(name, sequelizeStructure, sequelizeOptions);
