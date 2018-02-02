@@ -68,9 +68,9 @@ class Table {
     column(column) {
         return this._rows.map(row => row[this.columnIndex(column)]);
     }
-    _sql(url, tableName) {
+    _sql(url, tableName, indexes = []) {
         return __awaiter(this, void 0, void 0, function* () {
-            return sql.createTable(url, _.zipObject(this.headers, this.types), this.rows(), true, tableName);
+            return sql.createTable(url, _.zipObject(this.headers, this.types), this.rows(), indexes, true, tableName);
         });
     }
     query(q, replace = true) {

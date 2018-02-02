@@ -19,7 +19,7 @@ exports.toSQL = (value) => {
     }
     return value;
 };
-exports.createTable = (url, structure, data, clear = true, name = "data") => __awaiter(this, void 0, void 0, function* () {
+exports.createTable = (url, structure, data, indexes = [], clear = true, name = "data") => __awaiter(this, void 0, void 0, function* () {
     const typeMap = {
         date: Sequelize.DATE,
         number: Sequelize.DECIMAL,
@@ -40,7 +40,8 @@ exports.createTable = (url, structure, data, clear = true, name = "data") => __a
     const sequelizeOptions = {
         timestamps: false,
         tableName: name,
-        version: false
+        version: false,
+        indexes: indexes
     };
     const Model = sequelize.define(name, sequelizeStructure, sequelizeOptions);
     if (clear) {

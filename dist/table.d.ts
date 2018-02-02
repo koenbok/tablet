@@ -12,7 +12,7 @@ export declare class Table {
     rows(): any[][];
     data(): types.DataRowType[];
     column(column: number | string): any[];
-    private _sql(url, tableName);
+    private _sql(url, tableName, indexes?);
     query(q: string, replace?: boolean): Promise<Table>;
     add(rows: any[][]): void;
     merge(table: Table): Table;
